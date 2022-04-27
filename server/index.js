@@ -25,7 +25,15 @@ server.get('/', (req, res) => {
 })
 
 server.get('/animals', (req, res) => {
-  return res.status(200).json(animals);
+  const allAnimals = {};
+  allAnimals.totalQty = animals.length;
+  allAnimals.totalCat = animals.filter((animal) => animal.type === 'cat').length;
+  allAnimals.totalDog = animals.filter((animal) => animal.type === 'dog').length;
+  allAnimals.availableQty = animals.filter((animal) => animal.status === 'Available').length;
+  allAnimals.availableCat = animals.filter((animal) => animal.type === 'cat' && animal.status === 'Available').length;
+  allAnimals.availableDog = animals.filter((animal) => animal.type === 'dog' && animal.status === 'Available').length;
+  allAnimals.animals = animals;
+  return res.status(200).json(allAnimals);
 })
 
 server.get('/cats', (req, res) => {
