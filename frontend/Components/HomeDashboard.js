@@ -17,7 +17,7 @@ export default function HomeDashboard() {
 
   return (
     <div className="main-dashboard">
-      {animals?.animals.map(animal => (
+      {animals?.map(animal => (
         <div className="main-dashboard-card" key={animal?.id}>
           <b>{animal?.name}</b>
           <img src={`./media/${animal?.type}.png`} />
