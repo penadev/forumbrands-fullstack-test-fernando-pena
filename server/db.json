@@ -78,6 +78,66 @@
       "adoptedDate": "01/10/2022",
       "adopter": "5",
       "shelter": "1"
+    },
+    {
+      "id": "7",
+      "type": "cat",
+      "name": "Vasia",
+      "status": "Adopted",
+      "arrivedDate": "11/20/2020",
+      "adoptedDate": "01/21/2020",
+      "adopter": "3",
+      "shelter": "1"
+    },
+    {
+      "id": "8",
+      "type": "dog",
+      "name": "Rex",
+      "status": "Adopted",
+      "arrivedDate": "11/20/2020",
+      "adoptedDate": "11/20/2019",
+      "adopter": "3",
+      "shelter": "1"
+    },
+    {
+      "id": "9",
+      "type": "cat",
+      "name": "Misc",
+      "status": "Available",
+      "arrivedDate": "07/20/2021",
+      "adoptedDate": "",
+      "adopter": "",
+      "shelter": "1"
+    },
+    {
+      "id": "10",
+      "type": "dog",
+      "name": "Bingo",
+      "status": "Available",
+      "arrivedDate": "11/14/2020",
+      "adoptedDate": "",
+      "adopter": "",
+      "shelter": "1"
+    },
+    {
+      "id": "11",
+      "type": "cat",
+      "name": "Felix",
+      "status": "Adopted",
+      "arrivedDate": "11/20/2020",
+      "adoptedDate": "10/12/2021",
+      "adopter": "2",
+      "shelter": "1"
+    },
+    {
+      "id": "12",
+      "type": "dog",
+      "name": "Scooby",
+      "status": "Adopted",
+      "arrivedDate": "11/20/2020",
+      "adoptedDate": "01/10/2022",
+      "adopter": "2",
+      "shelter": "1"
     }
   ],
   "adopters": [

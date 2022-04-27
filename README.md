@@ -52,3 +52,11 @@ npm start
 
 ## Notes
 > Add here any additional notes we should know about the application
+
+ER Diagram
+
+
+
+Rewrite backend server using Express JS library
+Create a custom hook to fetch data from backend API
+Create new components in React to render dashboard

@@ -26,12 +26,13 @@ server.get('/', (req, res) => {
 
 server.get('/animals', (req, res) => {
   const allAnimals = {};
-  allAnimals.totalQty = animals.length;
-  allAnimals.totalCat = animals.filter((animal) => animal.type === 'cat').length;
-  allAnimals.totalDog = animals.filter((animal) => animal.type === 'dog').length;
-  allAnimals.availableQty = animals.filter((animal) => animal.status === 'Available').length;
-  allAnimals.availableCat = animals.filter((animal) => animal.type === 'cat' && animal.status === 'Available').length;
-  allAnimals.availableDog = animals.filter((animal) => animal.type === 'dog' && animal.status === 'Available').length;
+  allAnimals.numbers = {};
+  allAnimals.numbers.totalQty = animals.length;
+  allAnimals.numbers.totalCat = animals.filter((animal) => animal.type === 'cat').length;
+  allAnimals.numbers.totalDog = animals.filter((animal) => animal.type === 'dog').length;
+  allAnimals.numbers.availableQty = animals.filter((animal) => animal.status === 'Available').length;
+  allAnimals.numbers.availableCat = animals.filter((animal) => animal.type === 'cat' && animal.status === 'Available').length;
+  allAnimals.numbers.availableDog = animals.filter((animal) => animal.type === 'dog' && animal.status === 'Available').length;
   allAnimals.animals = animals;
   return res.status(200).json(allAnimals);
 })
@@ -51,7 +52,28 @@ server.get('/shelters', (req, res) => {
 })
 
 server.get('/adopters', (req, res) => {
-  return res.status(200).json(adopters);
+  const ages = [];
+  const states = [];
+  adopters.map((adopter) => {
+    ages.push(parseInt(adopter.age))
+    states.push(adopter.state)
+  });
+
+  const min = Math.min(...ages);
+  const max = Math.max(...ages);
+
+  const unique = (value, index, self) => {
+    return self.indexOf(value) === index
+  }
+  
+  const uniqueStates = states.filter(unique);
+
+  const allAdopters = {};
+  allAdopters.minAge = min;
+  allAdopters.maxAge = max;
+  allAdopters.uniqueStates = uniqueStates;
+  allAdopters.adopters = adopters;
+  return res.status(200).json(allAdopters);
 })
 
 server.listen(serverPort, (err) => {
