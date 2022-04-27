@@ -1,38 +1,52 @@
-const http = require('http');
-/**
- * Very simple endpoint, feel free to use a library to make your life easier, Rest or Graph, both work
- */
-const server = http.createServer((req, res) => {
-  // Set CORS headers
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Request-Method', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
-  res.setHeader('Access-Control-Allow-Headers', '*');
+const express = require('express');
+var cors = require('cors')
+const server = express();
 
-  if (req.url === '/') {
-    res.writeHead(200, { "Content-Type": "application/json" });
-    res.end(JSON.stringify({
-      cats: 'http://localhost:3000/cats'
-    }))
-  }
-  if (req.url === '/cats') {
-    res.writeHead(200, { "Content-Type": "application/json" });
-    res.end(JSON.stringify([{
-      type: 'cat',
-      name: 'Vasia',
-      status: 'Adopted',
-      someOther: 'Some Other',
-    },{
-      type: 'cat',
-      name: 'Musci',
-      status: 'Adopted',
-      someOther: 'New Value',
-    }
-    ]))
-  }
+const db = require('./db.json');
+const serverPort = 3000;
+
+const animals = db.animals;
+const shelters = db.shelters;
+const adopters = db.adopters;
+
+server.use( cors() );
+server.use( express.json() );
+
+const defaultPath = {
+  animals: 'http://localhost:3000/animals',
+  cats: 'http://localhost:3000/cats',
+  dogs: 'http://localhost:3000/dogs',
+  shelters: 'http://localhost:3000/shelters',
+  adopters: 'http://localhost:3000/adopters'
+}
+
+server.get('/', (req, res) => {
+  return res.status(200).json(defaultPath);
 })
 
-server.listen(3000, (err) => {
+server.get('/animals', (req, res) => {
+  return res.status(200).json(animals);
+})
+
+server.get('/cats', (req, res) => {
+  const cats = animals.filter((animal) => animal.type === 'cat');
+  return res.status(200).json(cats);
+})
+
+server.get('/dogs', (req, res) => {
+  const dogs = animals.filter((animal) => animal.type === 'dog');
+  return res.status(200).json(dogs);
+})
+
+server.get('/shelters', (req, res) => {
+  return res.status(200).json(shelters);
+})
+
+server.get('/adopters', (req, res) => {
+  return res.status(200).json(adopters);
+})
+
+server.listen(serverPort, (err) => {
   if (err) throw err;
-  console.log('server is listening on port 3000');
+  console.log(`Server is listening on port ${serverPort} | API: http://localhost:${serverPort}`);
 })
