@@ -13,7 +13,7 @@ module.exports = function(_env, argv) {
     devtool: isDevelopment && "cheap-module-source-map",
     entry: "./frontend/index.js",
     output: {
-      path: path.resolve(__dirname, "dist"),
+      path: path.resolve(__dirname, "public"),
       filename: "assets/js/[name].[contenthash:8].js",
       publicPath: "/"
     },
@@ -125,7 +125,7 @@ module.exports = function(_env, argv) {
       runtimeChunk: "single"
     },
     devServer: {
-      contentBase: path.join(__dirname, 'dist'),
+      contentBase: path.join(__dirname, 'public'),
       port: 9000,
       compress: true,
       historyApiFallback: true,
