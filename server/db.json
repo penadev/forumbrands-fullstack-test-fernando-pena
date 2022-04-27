@@ -1,0 +1,115 @@
+{
+  "animalTypes": [
+    {
+      "typeId": "1",
+      "type": "cat",
+      "icon": "images/cat.png"
+    },
+    {
+      "typeId": "2",
+      "type": "dog",
+      "icon": "images/dog.png"
+    }
+  ],
+  "shelters": [
+    {
+      "id": "1",
+      "name": "Shelter HQ",
+      "location": "Miami, FL"
+    }
+  ],
+  "animals": [
+    {
+      "id": "1",
+      "type": "cat",
+      "name": "Vasia",
+      "status": "Adopted",
+      "arrivedDate": "11/20/2020",
+      "adoptedDate": "01/21/2020",
+      "adopter": "1",
+      "shelter": "1"
+    },
+    {
+      "id": "2",
+      "type": "dog",
+      "name": "Rex",
+      "status": "Adopted",
+      "arrivedDate": "11/20/2020",
+      "adoptedDate": "11/20/2019",
+      "adopter": "1",
+      "shelter": "1"
+    },
+    {
+      "id": "3",
+      "type": "cat",
+      "name": "Misc",
+      "status": "Available",
+      "arrivedDate": "07/20/2021",
+      "adoptedDate": "",
+      "adopter": "",
+      "shelter": "1"
+    },
+    {
+      "id": "4",
+      "type": "dog",
+      "name": "Bingo",
+      "status": "Available",
+      "arrivedDate": "11/14/2020",
+      "adoptedDate": "",
+      "adopter": "",
+      "shelter": "1"
+    },
+    {
+      "id": "5",
+      "type": "cat",
+      "name": "Felix",
+      "status": "Adopted",
+      "arrivedDate": "11/20/2020",
+      "adoptedDate": "10/12/2021",
+      "adopter": "4",
+      "shelter": "1"
+    },
+    {
+      "id": "6",
+      "type": "dog",
+      "name": "Scooby",
+      "status": "Adopted",
+      "arrivedDate": "11/20/2020",
+      "adoptedDate": "01/10/2022",
+      "adopter": "5",
+      "shelter": "1"
+    }
+  ],
+  "adopters": [
+    {
+      "id": "1",
+      "name": "Lucca",
+      "age": "22",
+      "state": "FL"
+    },
+    {
+      "id": "2",
+      "name": "Mark",
+      "age": "32",
+      "state": "NY"
+    },
+    {
+      "id": "3",
+      "name": "Izabel",
+      "age": "27",
+      "state": "CA"
+    },
+    {
+      "id": "4",
+      "name": "Maria",
+      "age": "37",
+      "state": "NY"
+    },
+    {
+      "id": "5",
+      "name": "Rose",
+      "age": "18",
+      "state": "FL"
+    }
+  ]
+}
